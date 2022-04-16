@@ -134,3 +134,15 @@ verAbajo.addEventListener('click', () => {
             });     
     });
 })(document);
+
+function submitUserForm(){
+    var response = grecaptcha.getResponse();
+    if(response.length == 0){
+        document.getElementById('error').innerHTML = '<span style="color: red;">Es necesario completar el captcha. </span>';
+        return false;
+    }
+    return true;
+}
+function verificarCaptcha(){
+    document.getElementById('error').innerHTML = '';
+}

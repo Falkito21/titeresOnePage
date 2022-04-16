@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,7 +162,7 @@
                     <hr>
                 </div>
                 <div class="form-cont">
-                    <form action="" id="form" class="form">
+                    <form action="" id="form" class="form" method="post" onsubmit="return submitUserForm();">
                         <label for="user">Nombre:</label>
                         <input type="text" id="user" name="user" required placeholder="Ingresa tu nombre">
 
@@ -172,16 +173,18 @@
                         <textarea name="mensaje" id="mensaje" required></textarea>
 
                         <div class="captcha" >
-                            <div class="g-recaptcha" data-sitekey="6LctJXQfAAAAAJ9a-nyMHNphTE7mxjL7qOxpWO8c
-                            " required>
+                            <div class="g-recaptcha" data-sitekey = "6Lfia3wfAAAAAFVNSlmVIVhs4iTeHR_Rq7S2WxlY" data-callback = "verificarCaptcha">
                             </div>
                             
                         </div>
                         <div class="contact-form-loader text-center none">
                             <img src="img/loader.svg" alt="Enviando...">
                         </div>
+                        <div id="error">
+                            
+                        </div>
                         <div class="enviar">
-                            <button type="submit">Enviar</button>
+                            <button type="submit" name="submit">Enviar</button>
                         </div>
                         <div class="mensaje-form">
                             <p>Escribenos un mensaje, con gusto tendras una respuesta de parte de nosotros en muy poco tiempo.</p>
