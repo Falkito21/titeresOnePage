@@ -1,6 +1,7 @@
 let btnMenu = document.querySelector('.btn-menu');
 let menu = document.querySelector('.list-cont');
 let containerMenu = document.querySelector('.menu');
+let des = document.querySelector('.bt');
 let activador = true;
 
 // MENU DE NAVEGACION ANIMACION
@@ -10,19 +11,33 @@ btnMenu.addEventListener('click', () => {
 
     if (activador) {
         menu.style.left = "0";
-        menu.style.transition = "0.5s";
+        menu.style.transition = "0.9s";
 
         activador = false;
+
     } else {
-        activador = false;
 
         menu.style.left = "-100%";
         menu.style.transition = "0.5s";
 
         activador = true;
     }
+    
 
 });
+
+// btnMenu.addEventListener('click', () => {
+
+//     document.querySelector('.list-cont .lists li a').classList.toggle('fa-times');
+
+//     if (activador) {
+//         menu.style.left = "-100%";
+//         menu.style.transition = "0.5s";
+
+//         activador = false;
+//     }
+
+//     });
 
 // INTERCALAR CLASE ACTIVE
 let enlaces = document.querySelectorAll('.lists li a');
@@ -87,3 +102,35 @@ verAbajo.addEventListener('click', () => {
     document.body.scrollTop = 600;
     document.documentElement.scrollTop = 600;
 });
+
+((d) => {
+    const $form = d.querySelector(".form"),
+    $loader = d.querySelector(".contact-form-loader"),
+    $response = d.querySelector(".contacto-formulario-responde");
+
+    $form.addEventListener("submit",(e) => {
+        e.preventDefault();
+        $loader.classList.remove("none");
+        fetch("https://formsubmit.co/ajax/juan.falco21@gmail.com",{
+            method:"POST",
+            body:new FormData(e.target),
+        })
+            .then((res) => (res.ok ? res.json():Promise.reject(res)))
+            .then(json=>{
+                console.log(json);
+                location.hash = "#gracias";
+                $form.reset();
+            })
+            .catch((err) => {
+                console.log(err);
+                let message = err.statusText || "Ocurrio un error al enviar, intenta nuevamente";
+                $response.querySelector("h3").innerHTML = `Eror ${err.status}:${message}`;
+            })
+            .finally(()=>{
+                $loader.classList.add("none");
+                setTimeout(()=>{
+                    location.hash="#close"
+                },3000);
+            });     
+    });
+})(document);
