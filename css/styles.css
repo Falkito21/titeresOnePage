@@ -662,7 +662,6 @@ body{
     display: flex;
     justify-content: center;
     margin: 40px 0;
-    margin-top: -1rem;
 }
 .footer .cont-footer .form-cont #form .enviar button{
     width: 150px;
@@ -696,11 +695,8 @@ body{
     color: #fff;
     font-size: 20px;
 }
-.form-cont form .captcha{
-    display: flex; 
-    justify-content: center;
-    margin-top: 2rem; 
-    margin-bottom: 1rem;
+.form-cont form .contact-form-loader{
+    margin-top: 2rem;
 }
 
 /* FOOTER */
