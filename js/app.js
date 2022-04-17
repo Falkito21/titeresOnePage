@@ -26,18 +26,19 @@ btnMenu.addEventListener('click', () => {
 
 });
 
-// btnMenu.addEventListener('click', () => {
+let chauMenu = document.querySelector('.lists');
 
-//     document.querySelector('.list-cont .lists li a').classList.toggle('fa-times');
+chauMenu.addEventListener('click', ()  => {
 
-//     if (activador) {
-//         menu.style.left = "-100%";
-//         menu.style.transition = "0.5s";
+    document.querySelectorAll('.lists ul a');
+    document.querySelector('.btn-menu i').classList.toggle('fa-times');
 
-//         activador = false;
-//     }
+    menu.style.left = "-100%";
+    menu.style.transition = "0.5s";
+    activador = true;
 
-//     });
+});
+
 
 // INTERCALAR CLASE ACTIVE
 let enlaces = document.querySelectorAll('.lists li a');
@@ -89,6 +90,7 @@ window.onscroll = () => {
 
 }
 
+
 goTop.addEventListener('click', ()  => {
     
     document.body.scrollTop = 0;
@@ -103,6 +105,8 @@ verAbajo.addEventListener('click', () => {
     document.documentElement.scrollTop = 600;
 });
 
+
+// ENVIA DE DATOS AL MAIL POR MEDIO DEL FORMULARIO
 ((d) => {
     const $form = d.querySelector(".form"),
     $loader = d.querySelector(".contact-form-loader"),
@@ -134,15 +138,3 @@ verAbajo.addEventListener('click', () => {
             });     
     });
 })(document);
-
-function submitUserForm(){
-    var response = grecaptcha.getResponse();
-    if(response.length == 0){
-        document.getElementById('error').innerHTML = '<span style="color: red;">Es necesario completar el captcha. </span>';
-        return false;
-    }
-    return true;
-}
-function verificarCaptcha(){
-    document.getElementById('error').innerHTML = '';
-}
